@@ -3,6 +3,7 @@ import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import StepCard from './components/StepCard';
 import { StepData } from './types';
+import { CheckCircle2 } from 'lucide-react';
 
 const steps: StepData[] = [
   {
@@ -17,7 +18,7 @@ const steps: StepData[] = [
       "Specifica il contesto (es. 'Usa Flexbox, font Inter e sfondo dark')."
     ],
     iconName: 'layout',
-    color: '#A259FF' // Purple (AI context)
+    color: '#0D9EAC'
   },
   {
     id: 'step-2',
@@ -31,7 +32,7 @@ const steps: StepData[] = [
       "Continua finché la pagina (es. la Dashboard) non è pixel-perfect."
     ],
     iconName: 'code',
-    color: '#F24E1E' // Orange/Red (Refining heat)
+    color: '#0D9EAC'
   },
   {
     id: 'step-3',
@@ -45,33 +46,33 @@ const steps: StepData[] = [
       "Unisci i vari file in un unico progetto coerente (es. usando React Router)."
     ],
     iconName: 'link',
-    color: '#1ABCFE' // Blue (Linking)
+    color: '#0D9EAC'
   },
   {
     id: 'step-4',
     number: 4,
-    title: 'Vantaggi del Codice',
-    description: "Perché preferire questo metodo a un prototipo statico su Figma? Perché alla fine ottieni un prodotto reale, non solo un disegno.",
+    title: 'Prototipi Realistici',
+    description: "Trasforma un'idea statica in un'esperienza d'uso tangibile. Ottieni un prototipo che non si limita a 'sembrare' vero, ma che risponde realmente alle azioni dell'utente.",
     details: [
-      "Logica Reale: Puoi inserire dati veri, form funzionanti e chiamate API.",
-      "Responsive Vero: Testi il comportamento su tutti i dispositivi, non solo su frame fissi.",
-      "Base per Sviluppo: Il codice generato è il punto di partenza per il software finale.",
-      "Fluidità: Le animazioni CSS/JS sono molto più fluide di quelle emulate da Figma."
+      "Feedback Immediato: Sperimenta la fluidità reale di hover, transizioni e micro-interazioni.",
+      "Dati Dinamici: Testa il layout con testi, immagini e liste reali, non solo segnaposto statici.",
+      "User Testing: Condividi un link funzionante per raccogliere feedback accurati sul flusso utente.",
+      "Responsività Vera: Verifica come l'interfaccia si adatta a ogni schermo, dal desktop allo smartphone."
     ],
     iconName: 'rocket',
-    color: '#0ACF83' // Green (Success/Advantages)
+    color: '#0D9EAC'
   }
 ];
 
 const App: React.FC = () => {
   return (
-    <div className="bg-slate-950 min-h-screen text-slate-50 selection:bg-indigo-500/30">
+    <div className="bg-neutral-950 min-h-screen text-neutral-50 selection:bg-primary selection:text-white">
       <Navigation />
       
       <main>
         <Hero />
         
-        <div className="flex flex-col">
+        <div className="flex flex-col bg-neutral-950">
           {steps.map((step, index) => (
             <StepCard 
               key={step.id} 
@@ -83,22 +84,35 @@ const App: React.FC = () => {
         </div>
 
         {/* Call to Action Footer */}
-        <section id="cta-section" className="py-24 px-6 text-center bg-gradient-to-b from-slate-900 to-slate-950 relative overflow-hidden">
-             <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+        <section id="cta-section" className="py-24 px-6 text-center bg-neutral-950 relative overflow-hidden border-t border-neutral-900">
+             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-primary/5 blur-[120px] pointer-events-none"></div>
              <div className="relative z-10 max-w-3xl mx-auto space-y-8">
-                <h2 className="text-3xl md:text-4xl font-bold">Il futuro del design è nel codice.</h2>
-                <p className="text-slate-400">Inizia oggi a convertire i tuoi design con l'aiuto dell'Intelligenza Artificiale.</p>
-                <button 
-                  onClick={() => document.getElementById('step-1')?.scrollIntoView({behavior: 'smooth'})}
-                  className="px-8 py-3 bg-white text-slate-900 rounded-full font-bold hover:bg-slate-200 transition-colors"
-                >
-                    Ricomincia il percorso
-                </button>
+                <div className="inline-flex p-3 rounded-2xl bg-primary/10 border border-primary/20 text-primary mb-2">
+                   <CheckCircle2 className="w-8 h-8" />
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Porta i tuoi design in vita.</h2>
+                <p className="text-neutral-400">Non limitarti a disegnare. Crea prototipi che i tuoi utenti possono finalmente toccare con mano.</p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button 
+                    onClick={() => document.getElementById('step-1')?.scrollIntoView({behavior: 'smooth'})}
+                    className="px-8 py-3 bg-primary text-white rounded-full font-bold hover:bg-primary-dark transition-colors shadow-[0_0_20px_rgba(13,158,172,0.3)]"
+                  >
+                      Ricomincia il percorso
+                  </button>
+                  <a 
+                      href="https://aistudio.google.com/" 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="px-8 py-3 bg-neutral-900 text-white border border-neutral-800 rounded-full font-bold hover:border-primary transition-all"
+                  >
+                      Vai a Google AI Studio
+                  </a>
+                </div>
              </div>
         </section>
       </main>
 
-      <footer className="py-8 text-center text-slate-600 text-sm border-t border-slate-900 bg-slate-950">
+      <footer className="py-8 text-center text-neutral-600 text-sm border-t border-neutral-900 bg-neutral-950">
         <p>© {new Date().getFullYear()} Figma2Code AI Guide.</p>
       </footer>
     </div>
